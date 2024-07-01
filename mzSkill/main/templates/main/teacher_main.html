@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
+    <title>티쳐 메인 페이지</title>
   </head>
   <body>
-    <h1>메인 페이지</h1>
-    <p>환영합니다, {{ request.user.username }}!</p>
+    {% load static %}
+    <h1>티쳐 메인 페이지</h1>
+    <p>환영합니다, {{ profile.user.username }}!</p>
     <br />
     <a href="{% url 'main:profile_card_view' %}">내 프로필</a>
     <br /><br />
