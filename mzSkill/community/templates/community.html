@@ -21,7 +21,7 @@
                 {% else %}
                     {% for category in categories %}
                         {% if category.id == category_id %}
-                            {{ category.name }}
+                            {{ category.name|truncatechars:5 }}
                         {% endif %}
                     {% endfor %}
                 {% endif %}
