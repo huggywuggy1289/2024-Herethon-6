@@ -72,9 +72,8 @@ a {
   font-weight: bolder;
   text-align: center;
 }
-.teachingPlanKeyword {
-  margin-top: ;
-}
+/* .teachingPlanKeyword {
+} */
 .middleContainer {
   display: flex;
   flex-direction: column;
@@ -83,6 +82,7 @@ a {
 .middleContainerTop {
   display: flex;
   justify-content: center;
+  padding-left: 10px;
 }
 .teachingPlan,
 .runnerReview {
@@ -116,9 +116,14 @@ a {
   font-weight: bolder;
 }
 .middleContainerBox {
-  min-height: 160px;
-  width: 330px;
+  height: 120px;
+  width: 310px;
   box-shadow: 0px 4px 4px 0px rgb(236, 232, 240);
+  color: #454347;
+  font-size: 14px;
+  padding: 30px;
+  line-height: 20px;
+  font-weight: bold;
 }
 .teachingPlanKeyword {
   max-width: 95px;
