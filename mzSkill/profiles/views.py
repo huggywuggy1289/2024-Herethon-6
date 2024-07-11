@@ -64,6 +64,7 @@ def update_teacher_details(request, id):
     else:
         return render(request, "update_teacher_details.html")
 
+# 프로필 등록 후 티쳐일 경우 티칭 플랜 작성하기
 def write_teachingplan(request, id):
     profile = Teacher.objects.get(id=id)
     if request.method == 'POST':

@@ -71,11 +71,11 @@ class WriteProfileView(View): # 3단계 : 프로필 등록
             profile_model = Teacher # 추가
 
         if form.is_valid():
-            user = request.user # 추가: 이미 존재하는 프로필 확인
+            user = request.user # 현제 요청을 보낸 사용자 가져옴
             try:
                 profile = profile_model.objects.get(user=user)
-                form = form.save(commit=False)
-                form.user = user
+                form = form.save(commit=False) # 데이터베이스에 바로 커밋안하고 폼 데이터 저장
+                form.user = user # 폼 객체의 user필드를 현재 사용자로 지정
                 form.id = profile.id  # 기존 프로필을 업데이트하도록 ID를 설정
                 form.save()
 
@@ -84,8 +84,10 @@ class WriteProfileView(View): # 3단계 : 프로필 등록
                 profile.user = user
                 profile.save()
 
-            request.session['usertype'] = request.session['usertype']
+            request.session['usertype'] = request.session['usertype'] # 딱히 불필요
             return redirect(reverse('accounts:writedetails'))
+        
+        # 폼 데이터가 유효하지 않는 경우( 프로필 등록에 폼 데이터를 넘긴채 폼 오류메세지와 함께 그 템플릿에 머물게 함.)
         return render(request, 'writeprofile.html', {'form': form})
 
     
